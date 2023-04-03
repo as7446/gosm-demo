@@ -36,8 +36,8 @@ func (OssStorageInfoOssLabel) TableName() string {
 
 type OssStorageInfo struct {
 	Id              int64       `gorm:"primaryKey" json:"id"`
-	BucketName      string      `gorm:"type:varchar(255)"`
-	AccountName     string      `gorm:"type:varchar(255)"`
+	BucketName      string      `gorm:"type:varchar(255);unique;"`
+	AccountName     string      `gorm:"type:varchar(255);unique;"`
 	AccessKeyId     string      `gorm:"type:varchar(255)"`
 	AccessKeySecret string      `gorm:"type:varchar(255)"`
 	Region          string      `gorm:"type:varchar(255)"`
@@ -72,7 +72,7 @@ type AzureLabel struct {
 }
 type AzureStorageInfo struct {
 	Id               int64         `gorm:"primaryKey" json:"id"`
-	AccountName      string        `gorm:"type:varchar(255)"`
+	AccountName      string        `gorm:"type:varchar(255);unique;"`
 	ResourceGroup    string        `gorm:"type:varchar(255)"`
 	SecretKey        string        `gorm:"type:varchar(255)"`
 	ConnectionString string        `gorm:"type:varchar(255)"`
@@ -102,7 +102,7 @@ func (AzureStorageInfoAzureLabel) TableName() string {
 type OssUserInfo struct {
 	Id                int64              `gorm:"primary_key" json:"id"`
 	User              string             `gorm:"type:varchar(255)"`
-	Username          string             `gorm:"type:varchar(255)"`
+	Username          string             `gorm:"type:varchar(255);unique;"`
 	Email             string             `gorm:"type:varchar(255);"`
 	Phone             string             `gorm:"type:varchar(128);"`
 	Department        string             `gorm:"type:varchar(255);"`
