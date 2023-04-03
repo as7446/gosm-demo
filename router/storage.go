@@ -7,9 +7,9 @@ import (
 
 func StorageRouter(r *gin.Engine) {
 	v1 := r.Group("/api/v1/storage")
-	v1.GET("/osss")
-	v1.POST("/oss", controller.Oss.CreateOssHandler)
-	v1.GET("/oss")
-	v1.PUT("/oss")
-	v1.DELETE("/oss")
+	v1.GET("/buckets")
+	v1.POST("/bucket", controller.Oss.CreateOssHandler)
+	v1.GET("/bucket")
+	v1.PUT("/bucket")
+	v1.DELETE("/bucket")
 }
